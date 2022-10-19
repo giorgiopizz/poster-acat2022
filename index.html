@@ -134,8 +134,8 @@
 						independently the DA along all the blocks;
 					</li>
 					<li>
-						All the results shown have been obtained with block size
-						512
+						All the results shown have been obtained with a block size
+						of 512 and and overlap fraction of 0.5
 					</li>
 				</ul>
 				<p><b>New Estimator</b></p>
@@ -179,11 +179,11 @@
 						multimatched (merged).
 					</li>
 					<li>
-						Efficiency: \( \textrm{Efficiency} = \frac{n_{\textrm{matched
+						Efficiency: \( \textrm{Efficiency} = \frac{n_{\textrm{matched 
 						sim}}}{n_{\textrm{sim}}} \)
 					</li>
 					<li>
-						Fake rate: \( \textrm{Fake rate} = \frac{1-n_{\textrm{matched
+						Fake rate: \( \textrm{Fake rate} = \frac{1-n_{\textrm{matched 
 						reco}}}{n_{\textrm{reco}}} \)
 					</li>
 					<li>
@@ -249,7 +249,8 @@
 					/>
 				</figure>
 				<hr />
-				<table style="width: 40%">
+        <!-- style="width: 40%" -->
+				<table >
 					<tr>
 						<td>Clustering</td>
 						<td>
@@ -295,7 +296,8 @@
 					/>
 				</figure>
 				<hr />
-				<table style="width: 60%">
+        <!-- style="width: 60%" -->
+				<table >
 					<tr>
 						<td>Clustering</td>
 						<td>
@@ -330,6 +332,101 @@
 			</article>
 
 
+      <article>
+				<header><h3>Resolution of x</h3></header>
+
+				<figure>
+					<img
+						src="images/RecoAllAssoc2GenMatched_ResolX_vs_Pt_Sigma.png"
+						width="auto"
+						height="auto"
+						alt="effic_vs_NumVertices"
+					/>
+				</figure>
+				<hr />
+        <!-- style="width: 60%" -->
+				<table >
+					<tr>
+						<td>Clustering</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-down"
+								style="color: rgb(0, 255,  0)"
+							></i>
+							&#126; 10%
+						</td>
+					</tr>
+					<tr>
+						<td>Estimator</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-down"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 20%
+						</td>
+					</tr>
+					<tr>
+						<td>Combination</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-down"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 25%
+						</td>
+					</tr>
+				</table>
+			</article>
+
+
+      <article>
+				<header><h3>Resolution of z</h3></header>
+
+				<figure>
+					<img
+						src="images/RecoAllAssoc2GenMatched_ResolZ_vs_Pt_Sigma.png"
+						width="auto"
+						height="auto"
+						alt="effic_vs_NumVertices"
+					/>
+				</figure>
+				<hr />
+        <!-- style="width: 60%" -->
+				<table >
+					<tr>
+						<td>Clustering</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-down"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 15%
+						</td>
+					</tr>
+					<tr>
+						<td>Estimator</td>
+						<td>
+							<!-- <i
+								class="fa-solid fa-arrow-down"
+								style="color: rgb(0, 255, 0)"
+							></i> -->
+								&nbsp;	&nbsp;	&nbsp;&#126; 0%
+						</td>
+					</tr>
+					<tr>
+						<td>Combination</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-down"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 15%
+						</td>
+					</tr>
+				</table>
+			</article>
+
 			<article>
 				<header><h3>Timing performance</h3></header>
 				<figure>
@@ -340,7 +437,7 @@
 						alt="An orange shield with a white 5 emblazoned on it and the letters HTML above it."
 					/>
 
-					<figcaption>Timings</figcaption>
+					<!-- <figcaption>Timings</figcaption> -->
 				</figure>
 				<hr />
         <ul>
@@ -351,8 +448,18 @@
             <li>Old Clustering + New Estimator performance is still affected by the Old Clustering</li>
           </ul>
           </li>
-                  </ul>
+        </ul>
 			</article>
+      <article>
+        <header><h3>Conclusions and Future plans</h3></header>
+        <li>The two separated algorithms (clustering and fitter) and the combination of the two have been tested for physics performances as well as computational performances</li>
+<li>Results are really promising for both metrics considering they are a work in progress running on CPU with no optimization (no parallel execution)</li>
+<b>Future plans:</b>
+<li>The GPU implementation is currently being tested and will take advantage of the architecture as well as the algorithm parallelization given out of the box </li>
+<li>The two algorithms are thought mainly to solve the time consuming RECO in high PU scenarios, but an effort is being made to test them in a Run 3 scenario given it’s better efficiency and resolution than the previous algorithms used in CMS</li>
+
+      </article>
+
 
 			<!-- <article>
     <header><h3>Using this template</h3></header>
