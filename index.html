@@ -1,57 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Building your own HTML poster — A tutorial on using this template to make your own posters</title>
-    <link rel="stylesheet" href="poster.css">
-    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1">
-    <!-- Based on a poster template from https://github.com/cpitclaudel/academic-poster-template -->
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			Primary Vertex Reconstruction for Heterogeneous Architecture at CMS
+		</title>
+		<link rel="stylesheet" href="poster.css" />
+		<meta
+			name="viewport"
+			content="height=device-height, width=device-width, initial-scale=1"
+		/>
+		<!-- Based on a poster template from https://github.com/cpitclaudel/academic-poster-template -->
+		<script
+			src="https://kit.fontawesome.com/03acc94515.js"
+			crossorigin="anonymous"
+		></script>
+		<script
+			type="text/javascript"
+			id="MathJax-script"
+			async
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+		></script>
 
-          <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-          <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-    
-    <style type="text/css">
-  html { font-size: 1.15rem }
-</style>
-  </head>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+			rel="stylesheet"
+		/>
 
-  <body vocab="http://schema.org/" typeof="ScholarlyArticle">
-    <header role="banner">
-      <aside>
-          <a href="https://github.com/cpitclaudel/academic-poster-template"><img src="logo.svg" alt="Tutorial logo"></a>
-      </aside>
-      <div>
-        <h1 property="headline">Building your own HTML poster</h1>
-                  <h2 property="alternativeHeadline">A tutorial on using this template to make your own posters</h2>
-                <address>
-              <a property="author">Clément Pit-Claudel<sup>a</sup></a>
-<br />  <sup>a</sup><a property="sourceOrganization">MIT CSAIL</a>
-        </address>
-        <span class="publication-info">
-                      <span property="publisher">Unpublished</span>,
-            <time pubdate property="datePublished" datetime="2020-09-08">September 8, 2020</time>
-                  </span>
-      </div>
-      <aside>
-          <a href="https://csail.mit.edu"><img style="background: white" src="csail.png" alt="MIT CSAIL Logo"></a>
-      </aside>
-    </header>
+		<style type="text/css">
+			html {
+				font-size: 1.15rem;
+			}
+		</style>
+	</head>
 
-    <main property="articleBody">
-        <article property="abstract">
+	<body vocab="http://schema.org/" typeof="ScholarlyArticle">
+		<header role="banner">
+			<aside>
+				<!-- <a href="https://github.com/cpitclaudel/academic-poster-template"><img src="logo.svg" alt="Tutorial logo"></a> -->
+			</aside>
+			<div>
+				<h1 property="headline">
+					Primary Vertex Reconstruction for Heterogeneous Architecture
+					at CMS
+				</h1>
+				<!-- <h2 property="alternativeHeadline">A tutorial on using this template to make your own posters</h2> -->
+				<address>
+					<a property="author"
+						>Adriano Di Florio<sup>a</sup>, Giorgio Pizzati<sup
+							>b</sup
+						></a
+					>
+					<br />
+					<sup>a</sup>
+					<a property="sourceOrganization">INFN Sezione di Bari</a>,
+					<sup>b</sup>
+					<a property="sourceOrganization"
+						>Università degli Studi di Milano-Bicocca</a
+					>
+				</address>
+				<span class="publication-info">
+					<span property="publisher">Unpublished</span>,
+					<time pubdate property="datePublished" datetime="2020-09-08"
+						>September 8, 2020</time
+					>
+				</span>
+			</div>
+			<aside>
+				<a href="https://home.cern/science/experiments/cms"
+					><img
+						style="background: white"
+						src="images/CMSlogo_color_label_1024_May2014.png"
+						alt="MIT CSAIL Logo"
+				/></a>
+			</aside>
+		</header>
+
+		<main property="articleBody">
+			<!-- <article property="abstract">
         <header><h3>Abstract</h3></header>
 
-    <p>Academic posters are usually designed using presentation software and distributed as images or PDFs.</p>
+<p> The future development projects for the Large Hadron Collider will constantly bring nominal luminosity increase, with the ultimate goal of reaching a peak luminosity of \( 5 \times 10^{34}\; \textrm{cm}^{-2} \textrm{s}^{-1} \).</p>
+      <p> This would result in up to 200 simultaneous proton collisions (pileup), posing significant challenges for the CMS detector reconstruction.</p>
 
-    <p>While PDFs are fine for printing posters, they are not particularly user-friendly: they are hard to read on small screens, don't support resizing text or increasing contrast, and often don't work nicely with screen readers.</p>
+<p>The CMS primary vertex (PV) reconstruction is a two-step procedure consisting of vertex finding and fitting. First, the Deterministic Annealing algorithm clusters tracks coming from the same interaction vertex. Secondly, an Adaptive Vertex Fit computes the best estimate of the vertex position. </p>
+<p>In High Luminosity LHC (HL-LHC) conditions, due to the high track density, the reconstruction of PVs is expected to be particularly time expensive (up to 6% of reconstruction time).</p>
 
-    <p>The recent shift to online conferences is a great opportunity to reconsider our poster-making tools, and it turns out that plain HTML5 + CSS works pretty well for making (more) accessible posters.</p>
+<p>This work presents a complete study about adapting the CMS primary vertex reconstruction algorithms in order to be run on heterogeneous architectures that allows us to exploit parallelization techniques to significantly reduce the processing time, while retaining similar physics performance. </p>
+<p>Results obtained for HL-LHC conditions will be discussed.</p>
 
-    <p>This template is released under a permissive license: all we ask if you use it for your own posters is that you leave a one-line comment in the HTML sources.</p>
-  </article>
+  </article> -->
 
-  <article>
+			<article property="abstract">
+				<header><h3>Introduction</h3></header>
+				<li>
+					This poster reports on vertex reconstruction at CMS in
+					HL-LHC conditions.
+				</li>
+				<li>
+					The CMS vertex reconstruction is a two-step procedure
+					consisting of vertex finding and fitting. The vertex is
+					found producing clusters of tracks coming from the same
+					interaction vertex using the Deterministic Annealing (DA)
+					algorithm [1], and then an Adaptive Vertex Fit [2] computes
+					the best estimate of the vertex position and the parameters
+					of the associated tracks.
+				</li>
+				<li>
+					Given the high impact on reconstruction time of this
+					procedure (up to 10% of the whole time with HL-LHC
+					conditions), new algorithms have been developed for the two
+					steps mentioned above
+				</li>
+				<!-- , chosen to be well above the average number of tracks assigned to a vertex, and overlap fraction 0.5, chosen so that each track would be taken into account in two adjacent blocks. -->
+				<li>
+					Both the new algorithms have been designed to be runnable in
+					parallel on a GPU. Both versions (CPU and GPU) have been
+					developed. All the results shown here are obtained running
+					on CPU.
+				</li>
+	
+			</article>
+      
+			<article>
+				<header><h3>New algorithms</h3></header>
+				<p><b>New Clustering</b></p>
+				<ul>
+					<li>
+						the new clustering procedure sorts the tracks in the z
+						coordinate, splits them in blocks of same size (set by
+						default to 512) with a fixed overlap fraction between
+						blocks (set by default to 0.5) and performs
+						independently the DA along all the blocks;
+					</li>
+					<li>
+						All the results shown have been obtained with block size
+						512
+					</li>
+				</ul>
+				<p><b>New Estimator</b></p>
+				<ul>
+					<li>
+						the new estimator, which replaces the Fitter,
+						iteratively estimates the vertex 3D coordinates and
+						errors using the weighted mean of tracks impact point at
+						the beamspot position and uncertainty. The iterations
+						include an outlier rejection to improve the performance.
+					</li>
+				</ul>
+			</article>
+			<article>
+				<header><h3>Matching vertices</h3></header>
+				<ul>
+					<li>
+						Reconstructed offline vertices are considered matched to
+						a simulated vertex if the following conditions are
+						satisfied:
+						<ul>
+							<li>\(|\Delta z| < 1\; \textrm{mm}\);</li>
+							<li>
+								\(|\Delta z|/\sigma_z < 3\) where \(\sigma_z\)
+								is the uncertainty in the reconstructed vertex z
+								position.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Reconstructed vertices that are not matched to a
+						simulated vertex are counted as misidentified (fakes).
+					</li>
+					<li>
+						Reconstructed vertices that are matched to the same
+						simulated vertex are counted as duplicates.
+					</li>
+					<li>
+						If more than one simulated vertices is matched to the
+						same reconstructed vertex, the latter is counted as
+						multimatched (merged).
+					</li>
+					<li>
+						Efficiency: \( \textrm{Efficiency} = \frac{n_{\textrm{matched
+						sim}}}{n_{\textrm{sim}}} \)
+					</li>
+					<li>
+						Fake rate: \( \textrm{Fake rate} = \frac{1-n_{\textrm{matched
+						reco}}}{n_{\textrm{reco}}} \)
+					</li>
+					<li>
+						Resolution for matched reco vertices: \(\textrm{Resolution of x} = \sigma (x_{\textrm{sim}} -
+						x_{\textrm{reco}}) \)
+					</li>
+					<li>
+						Pull for matched reco vertices: \(\textrm{Pull of x} = \sigma (\frac{x_{\textrm{sim}} -
+						x_{\textrm{reco}}}{\sigma_{\textrm{reco}}}) \)
+					</li>
+				</ul>
+			</article>
+<article>
+        <header><h3>Validation conditions</h3></header>
+        <ul>
+          			<li>
+					The vertexing performance has been measured in a simulated
+					\(t \bar{t}\) sample with superimposed pileup (PU) events:
+				</li>
+				the number of PU events generated follows a poissonian
+				distribution with &lt;PU&gt;=200;
+        <li>Measurements run with a single process with 10 concurrent threads on Intel Skylake Gold processor, with no other processes running on the machine.</li>
+
+				<li>
+					Run4 CMS detector conditions and geometry are used in the
+					simulations.
+				</li>
+        </ul>
+      </article>
+			<article>
+				<header><h3>Plot labels</h3></header>
+
+				<!-- <p>Use the following code to insert a figure:</p> -->
+				The primary vertex efficiency is shown as a function of the
+				number of simulated vertices for:
+				<ul>
+					<li>the current vertexing algorithm (black);</li>
+					<li>
+						the new DA clustering in blocks and the current adaptive
+						vertex fit (red);
+					</li>
+					<li>
+						the current DA clustering and the new weighted mean
+						vertex estimator (green);
+					</li>
+					<li>
+						the new DA clustering in blocks and weighted mean vertex
+						estimator (pink).
+					</li>
+				</ul>
+			</article>
+
+
+			<article>
+				<header><h3>Efficiency</h3></header>
+
+				<figure>
+					<img
+						src="images/effic_vs_NumVertices.png"
+						width="auto"
+						height="auto"
+						alt="effic_vs_NumVertices"
+					/>
+				</figure>
+				<hr />
+				<table style="width: 40%">
+					<tr>
+						<td>Clustering</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-up"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 3.5%
+						</td>
+					</tr>
+					<tr>
+						<td>Estimator</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-up"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 4%
+						</td>
+					</tr>
+					<tr>
+						<td>Combination</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-up"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 7%
+						</td>
+					</tr>
+				</table>
+			</article>
+
+      <article>
+				<header><h3>Fake rate</h3></header>
+
+				<figure>
+					<img
+						src="images/fakerate_vs_PU.png"
+						width="auto"
+						height="auto"
+						alt="effic_vs_NumVertices"
+					/>
+				</figure>
+				<hr />
+				<table style="width: 60%">
+					<tr>
+						<td>Clustering</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-up"
+								style="color: rgb(255, 0, 0)"
+							></i>
+							&#126; 3-10%
+						</td>
+					</tr>
+					<tr>
+						<td>Estimator</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-down"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 5-10%
+						</td>
+					</tr>
+					<tr>
+						<td>Combination</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-down"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 0.5%
+						</td>
+					</tr>
+				</table>
+			</article>
+
+
+			<article>
+				<header><h3>Timing performance</h3></header>
+				<figure>
+					<img
+						src="images/timings_overall.png"
+						width="auto"
+						height="auto"
+						alt="An orange shield with a white 5 emblazoned on it and the letters HTML above it."
+					/>
+
+					<figcaption>Timings</figcaption>
+				</figure>
+				<hr />
+        <ul>
+          <li>The plot shows the time spent on the Primary Vertex Producer for different configurations</li>
+          <li>Old Clustering has an important impact on the timings:
+          <ul>
+            <li>New Clustering + Old Fitter performance benefits the substition of the clustering</li>
+            <li>Old Clustering + New Estimator performance is still affected by the Old Clustering</li>
+          </ul>
+          </li>
+                  </ul>
+			</article>
+
+			<!-- <article>
     <header><h3>Using this template</h3></header>
     <p>There are two ways to use this template: directly editing the HTML, and using Jinja2 templates.</p>
   </article>
@@ -256,22 +559,28 @@
     <small>To customize column widths, use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns"><code>grid-template-columns</code></a>; for example, for 40%/60% widths, use the following snippet:
       <pre class="center">style="grid-template-columns: 40fr 60fr"</pre>
     </small>
-  </article>
+  </article> -->
 
-  <figure style="flex-grow: 9999999">
-    <img style="width: 70%" src="logo.svg" alt="Project logo" />
-    <figcaption>A stand-alone figure to fill the remaining space.</figcaption>
-  </figure>
-    </main>
+			<figure style="flex-grow: 9999999">
+				<!-- <img style="width: 70%" src="logo.svg" alt="Project logo" /> -->
+				<!-- <figcaption>A stand-alone figure to fill the remaining space.</figcaption> -->
+			</figure>
+		</main>
 
-    <footer>
-      <address class="monospace">  <a href="https://github.com/cpitclaudel/academic-poster-template">https://github.com/cpitclaudel/academic-poster-template</a>
-</address>
-      <address class="monospace">  clement.pitclaudel@live.com
-</address>
-                    <span class="credits">
-          Based on an <a href="https://github.com/cpitclaudel/academic-poster-template">open poster template</a>.
-        </span>
-          </footer>
-  </body>
+		<footer>
+			<address class="monospace">
+				<a href="https://github.com/GPUOfflinePV-CMS/cmssw/pull/5"
+					>Our CMSSW Pull Request</a
+				>
+			</address>
+			<address class="monospace">giorgio.pizzati@cern.ch</address>
+			<span class="credits">
+				Based on an
+				<a
+					href="https://github.com/cpitclaudel/academic-poster-template"
+					>open poster template</a
+				>.
+			</span>
+		</footer>
+	</body>
 </html>
