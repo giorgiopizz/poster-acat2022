@@ -50,7 +50,7 @@
 						>Adriano Di Florio<sup>a</sup>, Giorgio Pizzati<sup
 							>b</sup
 						></a
-					>
+					> on behalf of the CMS Collaboration
 					<br />
 					<sup>a</sup>
 					<a property="sourceOrganization">INFN Sezione di Bari</a>,
@@ -93,16 +93,18 @@
 
 			<article property="abstract">
 				<header><h3>Introduction</h3></header>
+				<ul>
 				<li>
 					This poster reports on vertex reconstruction at CMS in
 					HL-LHC conditions.
 				</li>
+				<li>Based on DPS note <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/PrimaryVertexPhase2">DPSNOTENUMBER</a></li>
 				<li>
 					The CMS vertex reconstruction is a two-step procedure
 					consisting of vertex finding and fitting. The vertex is
 					found producing clusters of tracks coming from the same
 					interaction vertex using the Deterministic Annealing (DA)
-					algorithm [1], and then an Adaptive Vertex Fit [2] computes
+					algorithm <a href="#references">[1]</a>, and then an Adaptive Vertex Fit <a href="#references">[2]</a> computes
 					the best estimate of the vertex position and the parameters
 					of the associated tracks.
 				</li>
@@ -119,7 +121,7 @@
 					developed. All the results shown here are obtained running
 					on CPU.
 				</li>
-	
+				</ul>
 			</article>
       
 			<article>
@@ -141,7 +143,7 @@
 				<p><b>New Estimator</b></p>
 				<ul>
 					<li>
-						the new estimator, which replaces the Fitter,
+						the new estimator, which replaces the Adaptive Vertex Fitter,
 						iteratively estimates the vertex 3D coordinates and
 						errors using the weighted mean of tracks impact point at
 						the beamspot position and uncertainty. The iterations
@@ -179,11 +181,11 @@
 						multimatched (merged).
 					</li>
 					<li>
-						Efficiency: \( \textrm{Efficiency} = \frac{n_{\textrm{matched 
+						\( \textrm{Efficiency} = \frac{n_{\textrm{matched 
 						sim}}}{n_{\textrm{sim}}} \)
 					</li>
 					<li>
-						Fake rate: \( \textrm{Fake rate} = \frac{1-n_{\textrm{matched 
+						\( \textrm{Fake rate} = \frac{1-n_{\textrm{matched 
 						reco}}}{n_{\textrm{reco}}} \)
 					</li>
 					<li>
@@ -203,8 +205,8 @@
 					The vertexing performance has been measured in a simulated
 					\(t \bar{t}\) sample with superimposed pileup (PU) events:
 				</li>
-				the number of PU events generated follows a poissonian
-				distribution with &lt;PU&gt;=200;
+				<li>the number of PU events generated follows a poissonian
+				distribution with &lt;PU&gt;=200;</li>
         <li>Measurements run with a single process with 10 concurrent threads on Intel Skylake Gold processor, with no other processes running on the machine.</li>
 
 				<li>
@@ -221,15 +223,15 @@
 				number of simulated vertices for:
 				<ul>
 					<li>the current vertexing algorithm (black);</li>
-					<li>
+					<li style="color:#c00000">
 						the new DA clustering in blocks and the current adaptive
 						vertex fit (red);
 					</li>
-					<li>
+					<li style="color:#039b03">
 						the current DA clustering and the new weighted mean
 						vertex estimator (green);
 					</li>
-					<li>
+					<li style="color:#b600b3">
 						the new DA clustering in blocks and weighted mean vertex
 						estimator (pink).
 					</li>
@@ -250,6 +252,55 @@
 				</figure>
 				<hr />
         <!-- style="width: 40%" -->
+				Compared to Old Vertexing:
+				
+				<table >
+					<tr>
+						<td>Clustering</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-up"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 3.5%
+						</td>
+					</tr>
+					<tr>
+						<td>Estimator</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-up"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 4%
+						</td>
+					</tr>
+					<tr>
+						<td>Combination</td>
+						<td>
+							<i
+								class="fa-solid fa-arrow-up"
+								style="color: rgb(0, 255, 0)"
+							></i>
+							&#126; 7%
+						</td>
+					</tr>
+				</table>
+			</article>
+			<article>
+				<header><h3>Efficiency</h3></header>
+
+				<figure>
+					<img
+						src="images/effic_vs_Pt2 (1).png"
+						width="auto"
+						height="auto"
+						alt="effic_vs_NumVertices"
+					/>
+				</figure>
+				<hr />
+        <!-- style="width: 40%" -->
+		Compared to Old Vertexing:
 				<table >
 					<tr>
 						<td>Clustering</td>
@@ -297,6 +348,7 @@
 				</figure>
 				<hr />
         <!-- style="width: 60%" -->
+		Compared to Old Vertexing:
 				<table >
 					<tr>
 						<td>Clustering</td>
@@ -345,6 +397,7 @@
 				</figure>
 				<hr />
         <!-- style="width: 60%" -->
+		Compared to Old Vertexing:
 				<table >
 					<tr>
 						<td>Clustering</td>
@@ -393,6 +446,7 @@
 				</figure>
 				<hr />
         <!-- style="width: 60%" -->
+		Compared to Old Vertexing:
 				<table >
 					<tr>
 						<td>Clustering</td>
@@ -429,7 +483,7 @@
 
 			<article>
 				<header><h3>Timing performance</h3></header>
-				<figure>
+				<!-- <figure>
 					<img
 						src="images/timings_overall.png"
 						width="auto"
@@ -437,14 +491,38 @@
 						alt="An orange shield with a white 5 emblazoned on it and the letters HTML above it."
 					/>
 
-					<!-- <figcaption>Timings</figcaption> -->
-				</figure>
+				</figure> -->
+				<div class="container">
+				<table>
+					<tr>
+						<th>Algorithm label</th>
+						<th>P.V. Producer Time per event [ms]</th>
+					</tr>
+					<tr>
+						<td>Old Vertexing</td>
+						<td>913.0 &#177; 3.5</td>
+					</tr>
+					<tr>
+						<td style="color:#c00000">New Clustering + <br> Old Fitter</td>
+						<td>368.0 &#177; 1.3</td>
+					</tr>
+					<tr>
+						<td style="color: #039b03">Old Clustering + <br> New Estimator</td>
+						<td>512.6 &#177; 3.3</td>
+					</tr>
+					<tr>
+						<td style="color: #b600b3">New Vertexing</td>
+						<td>145.7 &#177; 0.7</td>
+					</tr>
+				</table>
+				</div>
 				<hr />
         <ul>
           <li>The plot shows the time spent on the Primary Vertex Producer for different configurations</li>
-          <li>Old Clustering has an important impact on the timings:
+          <!-- <li>Old Clustering has an important impact on the timings: -->
+			<li>Parts of the old algorithm have impact on the timing:
           <ul>
-            <li>New Clustering + Old Fitter performance benefits the substition of the clustering</li>
+            <li>New Clustering + Old Fitter performance benefits the substitution of the clustering</li>
             <li>Old Clustering + New Estimator performance is still affected by the Old Clustering</li>
           </ul>
           </li>
@@ -452,13 +530,22 @@
 			</article>
       <article>
         <header><h3>Conclusions and Future plans</h3></header>
+		<ul>
         <li>The two separated algorithms (clustering and fitter) and the combination of the two have been tested for physics performances as well as computational performances</li>
-<li>Results are really promising for both metrics considering they are a work in progress running on CPU with no optimization (no parallel execution)</li>
+<li>Considering they are a work in progress running on CPU with no optimization (no parallel execution), the results obtained for efficiency, resolution and timings are really promising</li>
 <b>Future plans:</b>
-<li>The GPU implementation is currently being tested and will take advantage of the architecture as well as the algorithm parallelization given out of the box </li>
+<li>The GPU implementation is currently being tested and will take advantage of the architecture as well as the algorithm parallelization</li>
 <li>The two algorithms are thought mainly to solve the time consuming RECO in high PU scenarios, but an effort is being made to test them in a Run 3 scenario given it’s better efficiency and resolution than the previous algorithms used in CMS</li>
-
+</ul>
       </article>
+	  <article id="references">
+		<header><h3>References</h3></header>
+		<ol>
+			<li> Chabanat, E; Estre, N; <a href="https://cds.cern.ch/record/865587">Deterministic Annealing for Vertex Finding at CMS</a>, 2005, 10.5170/CERN-2005-002.287</li>
+			<li> Frühwirth, R; Waltenberger, W; Vanlaer, P; <a href="https://cds.cern.ch/record/1027031">Adaptive Vertex Fitting</a>, 2007, CMS-NOTE-2007-008</li>
+			<!-- <li> CMS Collaboration; <a href="http://cds.cern.ch/record/2020886">Technical proposal for the Phase-II upgrade of the Compact Muon Solenoid</a>, 2015, CERN-LHCC-2015-010</li> -->
+		</ol>
+	  </article>
 
 
 			<!-- <article>
